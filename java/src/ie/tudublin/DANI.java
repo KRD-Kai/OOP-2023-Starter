@@ -116,8 +116,12 @@ public class DANI extends PApplet {
 	}
 
 	public void keyPressed() {
-		this.sonnetText = writeSonnet();
-		System.out.println(sonnetText);
+		// SPACE only
+		if (keyCode == 32) {
+			this.sonnetText = writeSonnet();
+			System.out.println(sonnetText);
+		}
+
 	}
 
 	float off = 0;
@@ -128,8 +132,9 @@ public class DANI extends PApplet {
 		noStroke();
 		textSize(20);
 		textAlign(CENTER, CENTER);
+
 		if (sonnetText.length() == 0) {
-			text("Press any key to generate a magnificent sonnet", width / 2, height / 2);
+			text("Press SPACE to generate a magnificent sonnet", width / 2, height / 2);
 		} else {
 			text(sonnetText, width / 2, height / 2);
 		}
