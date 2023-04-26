@@ -6,6 +6,7 @@ import processing.core.PApplet;
 
 public class DANI extends PApplet {
 	private ArrayList<Word> model = new ArrayList<>();
+	private String sonnetText = "";
 
 	public void loadFile(String filename) {
 		String[] lines = loadStrings(filename);
@@ -67,7 +68,7 @@ public class DANI extends PApplet {
 	}
 
 	public void settings() {
-		size(1000, 1000);
+		size(700, 700);
 		// fullScreen(SPAN);
 	}
 
@@ -84,12 +85,15 @@ public class DANI extends PApplet {
 			String sentence = currWord.getWord();
 
 			// keep adding words until we have a complete sentence or reach 8 words
-			for (int j = 0; j < 8; j++) {
+			for (int j = 0; j < 7; j++) {
 				// Randomly pick one of the follow words
-				ArrayList<Follow> follows = currWord.getFollows();
+				ArrayList<Follow> follows = null;
+				if (currWord != null) {
+					follows = currWord.getFollows();
+				}
 
 				// End sentence if no follows
-				if (follows.isEmpty()) {
+				if (follows == null || follows.isEmpty()) {
 					break;
 				}
 
@@ -108,13 +112,12 @@ public class DANI extends PApplet {
 
 	public void setup() {
 		loadFile("shakespere.txt");
-		String sonnet = writeSonnet();
-		System.out.println(sonnet);
 		colorMode(HSB);
 	}
 
 	public void keyPressed() {
-
+		this.sonnetText = writeSonnet();
+		System.out.println(sonnetText);
 	}
 
 	float off = 0;
@@ -125,6 +128,11 @@ public class DANI extends PApplet {
 		noStroke();
 		textSize(20);
 		textAlign(CENTER, CENTER);
+		if (sonnetText.length() == 0) {
+			text("Press any key to generate a magnificent sonnet", width / 2, height / 2);
+		} else {
+			text(sonnetText, width / 2, height / 2);
+		}
 
 	}
 }
