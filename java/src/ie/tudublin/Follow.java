@@ -2,11 +2,10 @@ package ie.tudublin;
 
 public class Follow {
     private String word;
-    private int count;
+    private int count = 0;
 
-    public Follow(String word, int count) {
+    public Follow(String word) {
         this.word = word;
-        this.count = count;
     }
 
     public String getWord() {
@@ -15,6 +14,10 @@ public class Follow {
 
     public int getCount() {
         return count;
+    }
+
+    public void incrementCount() {
+        count++;
     }
 
     @Override
