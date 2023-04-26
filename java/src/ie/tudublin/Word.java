@@ -22,6 +22,15 @@ public class Word {
         follows.add(follow);
     }
 
+    public Follow findFollow(String str) {
+        for (Follow follow : follows) {
+            if (follow.getWord().equals(str)) {
+                return follow;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         String followStr = "";
