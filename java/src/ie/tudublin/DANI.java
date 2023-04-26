@@ -72,8 +72,6 @@ public class DANI extends PApplet {
 		// fullScreen(SPAN);
 	}
 
-	String[] sonnet;
-
 	public String writeSonnet() {
 		String sonnet = "";
 		for (int i = 0; i < 14; i++) {
