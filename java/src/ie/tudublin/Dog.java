@@ -1,24 +1,19 @@
 package ie.tudublin;
 
-public class Dog
-{
+public class Dog {
 	String name;
-	
-	public void setName(String name)
-	{
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Dog()
-	{
+
+	public Dog() {
 	}
-	
-	public Dog(String name)
-	{
+
+	public Dog(String name) {
 	}
-	
-	public void speak()
-	{
+
+	public void speak() {
 		System.out.println("Woof");
 	}
 }
